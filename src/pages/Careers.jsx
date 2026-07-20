@@ -89,16 +89,7 @@ export default function Careers({ onSelectJob }) {
     return matchesSearch && matchesDept;
   });
 
-  const handleInterestSubmit = (e) => {
-    e.preventDefault();
-    if (!interestEmail) return;
-    setIsSubmitting(true); // Simulate submitting
-    setTimeout(() => {
-      setInterestSubmitted(true);
-    }, 1000);
-  };
 
-  const [isSubmittingForm, setIsSubmittingForm] = useState(false);
 
   return (
     <div className="w-full">

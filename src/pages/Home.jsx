@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import {
   ArrowRight, ShieldCheck, CreditCard, Sparkles,
   Calendar, MapPin, Star, UserCheck,
-  User, Search, Smile, MessageSquare, Quote
+  User, Search, Smile, MessageSquare, Quote, Zap
 } from 'lucide-react';
 import hero from '../assets/hero.png';
 import unionBg from '../assets/Union.png';
