@@ -9,12 +9,13 @@ export default function Navbar({ currentPage, setCurrentPage, onGetStarted }) {
     { label: 'About us', value: 'about' },
     { label: 'Careers', value: 'careers' },
     { label: 'Providers', value: 'providers' },
-    { label: 'Blog', value: 'blog' }
+    { label: 'Blog', value: 'blog' },
+    { label: 'Help Center', value: 'helpcenter' }
   ];
 
   const handleNavClick = (value) => {
-    if (value === 'providers' || value === 'blog') {
-      alert(`Welcome to our ${value === 'providers' ? 'Providers Portal' : 'Blog'}! This is a mock link for the Zuca demo.`);
+    if (value === 'providers') {
+      alert(`Welcome to our Providers Portal! This is a mock link for the Zuca demo.`);
       return;
     }
     setCurrentPage(value);
