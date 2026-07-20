@@ -1,109 +1,211 @@
-import React, { useState } from "react";
-import { Search, ChevronRight, Zap } from "lucide-react";
+import { useState } from "react";
+import { Zap } from "lucide-react";
 
-export default function Blog() {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [activeCategory, setActiveCategory] = useState("All");
+const W = "#ffffff";
+const P2 = "#a78bfa";
 
-  const TOPIC_TAGS = ["All", "Beauty Trends", "Salons", "Self-Care", "Professionals", "News"];
+const TOPIC_TAGS = ["AI", "Freelancing", "Remote Work", "Startups", "Hiring", "Productivity", "Design", "Development"];
 
-  const TRENDING = [
-    { id: 1, tag: "Beauty Trends", color: "#1d4ed8", title: "Top 5 Summer Skincare Routines", meta: "6 min · 18.2K views", image: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=400&q=80" },
-    { id: 2, tag: "Self-Care", color: "#7c3aed", title: "Why Regular Massages are Essential", meta: "4 min · 14K views", image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=400&q=80" },
-    { id: 3, tag: "Salons", color: "#059669", title: "Finding the Best Salon in Your Area", meta: "7 min · 9.8K views", image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=400&q=80" },
-  ];
+const TRENDING = [
+  { id: 1, tag: "AI", color: "#2d5a1b", title: "AI Hiring Trends 2026", meta: "6 min · 18.2K views" },
+  { id: 2, tag: "Productivity", color: "#1a3a5c", title: "10 Productivity Hacks for Freelancers", meta: "4 min · 14K views" },
+  { id: 3, tag: "Remote Work", color: "#1a4a3a", title: "Building a Remote Team That Scales", meta: "7 min · 9.8K views" },
+  { id: 4, tag: "Hiring", color: "#3a1a5c", title: "Why Businesses Prefer Freelancers", meta: "5 min · 5.6K views" },
+  { id: 5, tag: "Design", color: "#3a3a1a", title: "Future of Design Careers", meta: "6 min · 4.7K views" },
+];
+
+const ARTICLES = [
+  {
+    bg: "linear-gradient(135deg, #4a1a8a 0%, #6a3aaa 100%)",
+    label: "The AI Tools Every Freelancer Needs in 2026",
+    tag: "AI", tagColor: "#4a90d9",
+    title: "10 AI Tools That Will Supercharge Your Freelance Career",
+    desc: "From automated proposal writing to AI-powered client matching, these tools are reshaping how freelancers work.",
+    author: "Mike Kim", date: "Jun 1 · 8 min", saves: "4.2K",
+  },
+  {
+    bg: "linear-gradient(135deg, #1a7a5a 0%, #2aaa7a 100%)",
+    label: "Remote Work Culture Blueprint",
+    tag: "Remote Work", tagColor: "#2aaa7a",
+    title: "How to Build an Async-First Remote Culture That Actually Works",
+    desc: "The companies thriving in remote work aren't doing it by accident. Here's their playbook.",
+    author: "Amy Lee", date: "May 28 · 6 min", saves: "5.0K",
+  },
+  {
+    bg: "linear-gradient(135deg, #c04a10 0%, #e06a20 100%)",
+    label: "From Freelancer to Founder",
+    tag: "Startups", tagColor: "#e06a20",
+    title: "How 3 Freelancers Built 7-Figure Agencies in 18 Months",
+    desc: "Success stories from the Huzzler community — and the exact strategies they used to scale.",
+    author: "Ryan Park", date: "May 28 · 8 min", saves: "5.6K",
+  },
+  {
+    bg: "linear-gradient(135deg, #1a3a5c 0%, #2a5a8c 100%)",
+    label: "Client Communication Mastery",
+    tag: "Hiring", tagColor: "#e06a20",
+    title: "The Freelancer's Guide to Landing Premium Clients Consistently",
+    desc: "Stop chasing low-paying gigs. Here's how top earners position themselves to attract high-value clients.",
+    author: "Julia Torres", date: "May 28 · 7 min", saves: "4.6K",
+  },
+  {
+    bg: "linear-gradient(135deg, #8a7a10 0%, #c0aa20 100%)",
+    label: "Design Systems for Freelancers",
+    tag: "Design", tagColor: "#c0aa20",
+    title: "Why Freelance Designers Are Charging 3x More With Design Systems",
+    desc: "Design systems aren't just for big teams. Freelancers using them are commanding premium rates.",
+    author: "Dana North", date: "May 28 · 5 min", saves: "5.0K",
+  },
+  {
+    bg: "linear-gradient(135deg, #6a1a8a 0%, #c040c0 100%)",
+    label: "Full-Stack Dev Market 2026",
+    tag: "Development", tagColor: "#a040d0",
+    title: "The Most In-Demand Dev Skills for Freelancers This Year",
+    desc: "TypeScript, AI APIs, and serverless architectures are reshaping what clients will pay top dollar for.",
+    author: "Chris Moore", date: "May 22 · 7 min", saves: "7.6K",
+  },
+];
+
+const TagBadge = ({ text, color }) => (
+  <span style={{
+    background: color + "22",
+    color: color,
+    border: `1px solid ${color}44`,
+    borderRadius: 4,
+    padding: "2px 8px",
+    fontSize: 11,
+    fontWeight: 600,
+    letterSpacing: 0.3,
+  }}>{text}</span>
+);
+
+export default function Blog({ setCurrentPage }) {
+  const [activeSubTab, setActiveSubTab] = useState(0);
 
   return (
-    <div className="w-full bg-white pb-20">
-      <section className="pt-28 pb-16 bg-gradient-to-t from-white to-[#E0EBFC] text-center">
-        <div className="max-w-4xl mx-auto px-6">
-          <span className="text-xs font-bold text-[#1d4ed8] uppercase tracking-widest block mb-4">
-            THE ZUCA BLOG
-          </span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight leading-tight">
-            Discover the latest in <br />
-            <span className="text-[#1d4ed8]">beauty & wellness</span>
+    <div style={{ fontFamily: "'Inter', 'Segoe UI', sans-serif", background: "#f5f6fa", minHeight: "100vh", color: "#1a1a2e" }} className="pt-16 md:pt-20">
+      {/* HERO */}
+      <div style={{
+        background: "linear-gradient(135deg, #0d0d2b 0%, #1a1060 40%, #2a1a80 70%, #1a0d40 100%)",
+        padding: "48px 100px",
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+        gap: 32, minHeight: 280,
+        position: "relative", overflow: "hidden",
+      }} className="flex-col md:flex-row px-4 md:px-12 lg:px-[100px]">
+        {/* Background circles */}
+        <div style={{ position: "absolute", top: -60, right: 300, width: 300, height: 300, borderRadius: "50%", background: "radial-gradient(circle, #6a3aff33, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", bottom: -80, left: 200, width: 250, height: 250, borderRadius: "50%", background: "radial-gradient(circle, #3a1aff22, transparent 70%)", pointerEvents: "none" }} />
+
+        <div style={{ maxWidth: 480, zIndex: 1 }}>
+          <div style={{ display: "inline-block", background: "#ffffff18", border: "1px solid #ffffff30", borderRadius: 20, padding: "3px 12px", fontSize: 12, color: "#c0b8ff", marginBottom: 16 }}>
+            ✦ Zuca Insights
+          </div>
+          <h1 style={{ color: "#fff", fontSize: 38, fontWeight: 800, lineHeight: 1.15, margin: "0 0 14px", letterSpacing: -0.5 }}>
+            The Future of<br />Freelancing, AI &<br />Remote Work
           </h1>
-          <p className="mt-6 text-gray-500 text-lg font-medium max-w-2xl mx-auto">
-            Expert advice, industry trends, and inspiration to help you look and feel your absolute best.
+          <p style={{ color: "#b0aacc", fontSize: 14, lineHeight: 1.6, margin: "0 0 24px" }}>
+            Actionable insights, hiring trends, productivity guides, freelance success stories, AI workflows, and expert advice.
           </p>
-          <div className="mt-10 relative max-w-xl mx-auto">
-            <input
-              type="text"
-              placeholder="Search for articles, trends, tips..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-12 pr-4 py-4 rounded-full border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#1d4ed8]/20 focus:border-[#1d4ed8] bg-white font-medium shadow-sm"
-            />
-            <Search className="absolute left-5 top-4 h-5 w-5 text-gray-400" />
+          <div style={{ display: "flex", gap: 8, marginBottom: 20 }}>
+            <input placeholder="Search articles, guides, more..." style={{
+              background: "#ffffff18", border: "1px solid #ffffff30", borderRadius: 8,
+              padding: "9px 14px", color: "#fff", fontSize: 13, width: 240, outline: "none",
+            }} />
+            <button style={{ background: "#7c5fff", color: "#fff", border: "none", borderRadius: 8, padding: "9px 18px", fontSize: 13, fontWeight: 600, cursor: "pointer" }}>Search</button>
+          </div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+            {TOPIC_TAGS.map(t => (
+              <span key={t} style={{ background: "#ffffff15", border: "1px solid #ffffff25", borderRadius: 20, padding: "4px 12px", fontSize: 12, color: "#c0b8ff", cursor: "pointer" }}>{t}</span>
+            ))}
           </div>
         </div>
-      </section>
 
-      <section className="max-w-7xl mx-auto px-6 py-8 border-b border-gray-100">
-        <div className="flex overflow-x-auto gap-4 pb-2 [&::-webkit-scrollbar]:hidden">
-          {TOPIC_TAGS.map((tag) => (
-            <button
-              key={tag}
-              onClick={() => setActiveCategory(tag)}
-              className={`whitespace-nowrap px-6 py-2 rounded-full text-sm font-bold transition-all cursor-pointer ${
-                activeCategory === tag
-                  ? "bg-[#1d4ed8] text-white shadow-md shadow-blue-600/20"
-                  : "bg-gray-50 text-gray-500 hover:bg-gray-100 border border-gray-150"
-              }`}
-            >
-              {tag}
-            </button>
-          ))}
-        </div>
-      </section>
-
-      <section className="max-w-7xl mx-auto px-6 pt-16">
-        <h2 className="text-2xl font-extrabold text-gray-900 mb-8">Trending Now</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {TRENDING.map((article) => (
-            <div key={article.id} className="group cursor-pointer">
-              <div className="relative h-60 w-full rounded-3xl overflow-hidden mb-4">
-                <img 
-                  src={article.image} 
-                  alt={article.title} 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute top-4 left-4">
-                  <span 
-                    className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-bold shadow-sm"
-                    style={{ color: article.color }}
-                  >
-                    {article.tag}
-                  </span>
-                </div>
+        {/* Featured card */}
+        <div style={{ width: 260, zIndex: 1, marginTop: "32px" }} className="md:mt-0">
+          <div style={{ background: "#c8b8ff", borderRadius: 12, padding: "14px 16px", marginBottom: 12 }}>
+            <div style={{ fontWeight: 700, fontSize: 15, color: "#1a1060", marginBottom: 4 }}>AI Hiring 2026</div>
+            <div style={{ fontSize: 11, color: "#5a4a99" }}>The definitive guide</div>
+          </div>
+          <div style={{ background: "#ffffff12", border: "1px solid #ffffff20", borderRadius: 12, padding: "14px 16px" }}>
+            <span style={{ background: "#2aaa7a22", color: "#2aaa7a", border: "1px solid #2aaa7a44", borderRadius: 4, padding: "2px 8px", fontSize: 11, fontWeight: 600 }}>AI & Freelancing</span>
+            <div style={{ fontWeight: 700, fontSize: 14, color: "#fff", margin: "10px 0 8px", lineHeight: 1.4 }}>
+              How AI Is Transforming Freelance Hiring in 2026
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <div style={{ width: 26, height: 26, borderRadius: "50%", background: "#5b4fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, color: "#fff", fontWeight: 700 }}>SJ</div>
+              <div>
+                <div style={{ fontSize: 11, color: "#c0b8ff", fontWeight: 600 }}>Sarah Johnson</div>
+                <div style={{ fontSize: 10, color: "#8880aa" }}>Senior Editor · Zuca</div>
               </div>
-              <p className="text-gray-400 text-xs font-bold mb-2">{article.meta}</p>
-              <h3 className="text-xl font-extrabold text-gray-900 group-hover:text-[#1d4ed8] transition-colors leading-tight">
-                {article.title}
-              </h3>
+            </div>
+            <div style={{ fontSize: 11, color: "#8880aa", marginTop: 8 }}>✦ 8 min read · ⊙ 10.5K views</div>
+          </div>
+        </div>
+      </div>
+
+      {/* TRENDING */}
+      <div style={{ background: "#fff", padding: "28px 100px", borderBottom: "1px solid #e8e8f0" }} className="px-4 md:px-12 lg:px-[100px]">
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 18 }}>
+          <div>
+            <span style={{ fontSize: 20, fontWeight: 800, color: "#1a1a2e" }}>Trending Now</span>
+            <div style={{ fontSize: 12, color: "#999", marginTop: 2 }}>What the community is reading this week</div>
+          </div>
+          <a href="#" style={{ fontSize: 13, color: "#5b4fff", textDecoration: "none", fontWeight: 500 }}>View all →</a>
+        </div>
+        <div style={{ display: "grid", gap: 16 }} className="grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+          {TRENDING.map((item, i) => (
+            <div key={item.id} style={{ borderRadius: 12, overflow: "hidden", cursor: "pointer" }}>
+              <div style={{ background: item.color, height: 120, position: "relative", display: "flex", alignItems: "flex-start", padding: 10 }}>
+                <span style={{ position: "absolute", top: 8, right: 10, fontSize: 11, color: "#ffffff80", fontWeight: 700 }}>{i + 1}</span>
+                <span style={{ background: "#ffffff20", border: "1px solid #ffffff30", borderRadius: 4, padding: "2px 8px", fontSize: 10, color: "#fff", fontWeight: 600 }}>{item.tag}</span>
+              </div>
+              <div style={{ padding: "10px 0 4px" }}>
+                <div style={{ fontSize: 13, fontWeight: 600, color: "#1a1a2e", marginBottom: 4, lineHeight: 1.4 }}>{item.title}</div>
+                <div style={{ fontSize: 11, color: "#999" }}>{item.meta}</div>
+              </div>
             </div>
           ))}
         </div>
-      </section>
-      
-      <section className="max-w-4xl mx-auto px-6 pt-24">
-        <div className="bg-[#f8fafc] border border-blue-50 rounded-3xl p-10 text-center relative overflow-hidden">
-          <Zap className="h-10 w-10 text-[#1d4ed8] mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">Never miss an update</h2>
-          <p className="text-gray-500 text-sm mb-6">Get the latest beauty tips and Zuca news delivered to your inbox.</p>
-          <div className="flex flex-col sm:flex-row max-w-md mx-auto gap-2">
-            <input 
-              type="email" 
-              placeholder="Your email address" 
-              className="flex-1 px-4 py-3 rounded-full border border-gray-200 text-sm focus:outline-none focus:border-[#1d4ed8]"
-            />
-            <button className="bg-[#1d4ed8] text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-[#1d4ed8]/90 transition-colors cursor-pointer">
-              Subscribe
-            </button>
+      </div>
+
+      {/* LATEST ARTICLES */}
+      <div style={{ padding: "32px 100px" }} className="px-4 md:px-12 lg:px-[100px]">
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 20 }}>
+          <div>
+            <span style={{ fontSize: 20, fontWeight: 800, color: "#1a1a2e" }}>Latest Articles</span>
+            <div style={{ fontSize: 12, color: "#999", marginTop: 2 }}>Fresh perspectives from our editorial team</div>
           </div>
+          <a href="#" style={{ fontSize: 13, color: "#5b4fff", textDecoration: "none", fontWeight: 500 }}>See all articles →</a>
         </div>
-      </section>
+        <div style={{ display: "grid", gap: 24 }} className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          {ARTICLES.map((a, i) => (
+            <div key={i} style={{ background: "#fff", borderRadius: 14, overflow: "hidden", boxShadow: "0 2px 12px #00000010", cursor: "pointer", transition: "transform 0.2s", }}
+              onMouseEnter={e => e.currentTarget.style.transform = "translateY(-3px)"}
+              onMouseLeave={e => e.currentTarget.style.transform = "translateY(0)"}
+            >
+              <div style={{ background: a.bg, height: 140, position: "relative", display: "flex", alignItems: "flex-end", padding: "12px 14px" }}>
+                <span style={{ fontSize: 12, color: "#ffffffcc", fontWeight: 600 }}>{a.label}</span>
+              </div>
+              <div style={{ padding: "14px 16px 16px" }}>
+                <TagBadge text={a.tag} color={a.tagColor} />
+                <div style={{ fontSize: 14, fontWeight: 700, color: "#1a1a2e", margin: "10px 0 6px", lineHeight: 1.45 }}>{a.title}</div>
+                <div style={{ fontSize: 12, color: "#777", lineHeight: 1.55, marginBottom: 14 }}>{a.desc}</div>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                    <div style={{ width: 28, height: 28, borderRadius: "50%", background: "linear-gradient(135deg, #5b4fff, #a040d0)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, color: "#fff", fontWeight: 700 }}>
+                      {a.author.split(" ").map(n => n[0]).join("")}
+                    </div>
+                    <div>
+                      <div style={{ fontSize: 11, fontWeight: 600, color: "#333" }}>{a.author}</div>
+                      <div style={{ fontSize: 10, color: "#999" }}>{a.date}</div>
+                    </div>
+                  </div>
+                  <div style={{ fontSize: 11, color: "#999" }}>🔖 {a.saves}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
