@@ -113,11 +113,7 @@ export default function Blog({ setCurrentPage }) {
             }} />
             <button style={{ background: "#7c5fff", color: "#fff", border: "none", borderRadius: 8, padding: "9px 18px", fontSize: 13, fontWeight: 600, cursor: "pointer" }}>Search</button>
           </div>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-            {TOPIC_TAGS.map(t => (
-              <span key={t} style={{ background: "#ffffff15", border: "1px solid #ffffff25", borderRadius: 20, padding: "4px 12px", fontSize: 12, color: "#c0b8ff", cursor: "pointer" }}>{t}</span>
-            ))}
-          </div>
+          {/* Tags were removed based on previous request */}
         </div>
 
         {/* Featured card */}

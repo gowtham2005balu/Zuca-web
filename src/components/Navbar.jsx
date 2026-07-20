@@ -14,13 +14,10 @@ export default function Navbar({ currentPage, setCurrentPage, onGetStarted }) {
   ];
 
   const handleNavClick = (value) => {
-    if (value === 'providers') {
-      alert(`Welcome to our Providers Portal! This is a mock link for the Zuca demo.`);
-      return;
-    }
     setCurrentPage(value);
-    setIsOpen(false);
+    window.location.hash = `/${value}`;
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    setIsOpen(false);
   };
 
   return (

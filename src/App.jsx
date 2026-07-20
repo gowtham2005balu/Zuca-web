@@ -6,6 +6,7 @@ import About from './pages/About';
 import Careers from './pages/Careers';
 import Blog from './pages/Blog';
 import HelpCenter from './pages/HelpCenter';
+import Providers from './pages/Providers';
 import JobModal from './components/JobModal';
 import BookingModal from './components/BookingModal';
 
@@ -13,13 +14,13 @@ import BookingModal from './components/BookingModal';
 function App() {
   const [currentPage, setCurrentPage] = useState(() => {
     const hash = window.location.hash.slice(2);
-    return ['home', 'about', 'careers', 'blog', 'helpcenter'].includes(hash) ? hash : 'home';
+    return ['home', 'about', 'careers', 'blog', 'helpcenter', 'providers'].includes(hash) ? hash : 'home';
   });
 
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.slice(2);
-      const targetPage = ['home', 'about', 'careers', 'blog', 'helpcenter'].includes(hash) ? hash : 'home';
+      const targetPage = ['home', 'about', 'careers', 'blog', 'helpcenter', 'providers'].includes(hash) ? hash : 'home';
       setCurrentPage(targetPage);
     };
 
@@ -42,6 +43,8 @@ function App() {
         return <About onGetStarted={() => setShowBookingModal(true)} />;
       case 'careers':
         return <Careers onSelectJob={(job) => setSelectedJob(job)} />;
+      case 'providers':
+        return <Providers />;
       case 'blog':
         return <Blog />;
       case 'helpcenter':

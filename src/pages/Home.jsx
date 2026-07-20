@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
 import {
   ArrowRight, ShieldCheck, CreditCard, Sparkles,
-  Calendar, MapPin, Star, UserCheck,
-  User, Search, Smile, MessageSquare, Quote, Zap
+  Calendar, MapPin, Star, UserCheck, Smartphone,
+  Zap, User, Search, Smile, MessageSquare, Quote
 } from 'lucide-react';
 import hero from '../assets/hero.png';
 import unionBg from '../assets/Union.png';
@@ -11,6 +11,7 @@ import appDownloadBanner from '../assets/app-download-banner.png';
 import containerPortrait1 from '../assets/Container-portrait 1.png';
 
 export default function Home({ onGetStarted }) {
+  const [activeStep, setActiveStep] = useState(1);
   const testimonialSliderRef = useRef(null);
   const [activeTestimonialIndex, setActiveTestimonialIndex] = useState(0);
 
