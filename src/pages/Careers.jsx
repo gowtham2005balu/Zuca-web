@@ -11,6 +11,7 @@ export default function Careers({ onSelectJob }) {
   // Newsletter Interest State
   const [interestEmail, setInterestEmail] = useState('');
   const [interestSubmitted, setInterestSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const perks = [
     {
@@ -97,7 +98,7 @@ export default function Careers({ onSelectJob }) {
     }, 1000);
   };
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmittingForm, setIsSubmittingForm] = useState(false);
 
   return (
     <div className="w-full">

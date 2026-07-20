@@ -6,13 +6,17 @@ export default function Navbar({ currentPage, setCurrentPage, onGetStarted }) {
 
   const navItems = [
     { label: 'Home', value: 'home' },
-    { label: 'About Us', value: 'about' },
-    { label: 'Career', value: 'careers' },
-    { label: 'Help center', value: 'help' },
+    { label: 'About us', value: 'about' },
+    { label: 'Careers', value: 'careers' },
+    { label: 'Providers', value: 'providers' },
     { label: 'Blog', value: 'blog' }
   ];
 
   const handleNavClick = (value) => {
+    if (value === 'providers' || value === 'blog') {
+      alert(`Welcome to our ${value === 'providers' ? 'Providers Portal' : 'Blog'}! This is a mock link for the Zuca demo.`);
+      return;
+    }
     setCurrentPage(value);
     setIsOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -35,23 +39,19 @@ export default function Navbar({ currentPage, setCurrentPage, onGetStarted }) {
               <button
                 key={item.value}
                 onClick={() => handleNavClick(item.value)}
-                className={`text-sm font-semibold transition-all duration-200 hover:text-[#1d4ed8] cursor-pointer relative py-2 ${
-                  currentPage === item.value
+                className={`text-sm font-semibold transition-all duration-200 hover:text-[#1d4ed8] cursor-pointer relative py-2 ${currentPage === item.value
                     ? 'text-[#1d4ed8]'
                     : 'text-gray-500'
-                }`}
+                  }`}
               >
                 {item.label}
-                {currentPage === item.value && (
-                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#1d4ed8] rounded-t-full" />
-                )}
               </button>
             ))}
           </div>
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center">
-            <button 
+            <button
               onClick={onGetStarted}
               className="bg-[#1d4ed8] hover:bg-[#1d4ed8]/95 text-white px-6 py-2.5 rounded-full font-bold text-xs transition-all duration-300 shadow-md shadow-blue-600/10 hover:scale-[1.01] cursor-pointer"
             >
@@ -78,17 +78,16 @@ export default function Navbar({ currentPage, setCurrentPage, onGetStarted }) {
             <button
               key={item.value}
               onClick={() => handleNavClick(item.value)}
-              className={`block w-full text-left px-4 py-2.5 rounded-xl font-semibold text-sm transition-colors cursor-pointer ${
-                currentPage === item.value
+              className={`block w-full text-left px-4 py-2.5 rounded-xl font-semibold text-sm transition-colors cursor-pointer ${currentPage === item.value
                   ? 'bg-blue-50 text-[#1d4ed8]'
                   : 'text-gray-600 hover:bg-gray-50'
-              }`}
+                }`}
             >
               {item.label}
             </button>
           ))}
           <div className="pt-2">
-            <button 
+            <button
               onClick={() => {
                 setIsOpen(false);
                 onGetStarted();
