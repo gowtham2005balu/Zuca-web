@@ -82,11 +82,12 @@ export default function Blog({ setCurrentPage }) {
   const [activeSubTab, setActiveSubTab] = useState(0);
 
   return (
-    <div style={{ fontFamily: "'Inter', 'Segoe UI', sans-serif", background: "#f5f6fa", minHeight: "100vh", color: "#1a1a2e" }} className="pt-16 md:pt-20">
+    <div style={{ fontFamily: "'Inter', 'Segoe UI', sans-serif", background: "#f5f6fa", minHeight: "100vh", color: "#1a1a2e" }}>
       {/* HERO */}
       <div style={{
         background: "linear-gradient(135deg, #0d0d2b 0%, #1a1060 40%, #2a1a80 70%, #1a0d40 100%)",
-        padding: "48px 100px",
+        paddingTop: 160,
+        paddingBottom: 64,
         display: "flex", alignItems: "center", justifyContent: "space-between",
         gap: 32, minHeight: 280,
         position: "relative", overflow: "hidden",
