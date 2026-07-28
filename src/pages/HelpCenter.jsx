@@ -136,18 +136,24 @@ export default function HelpCenter({ onGetStarted }) {
                 onClick={() => setActiveFaq(activeFaq === faq.id ? null : faq.id)}
                 className="w-full px-6 py-5 text-left flex justify-between items-center bg-transparent cursor-pointer group"
               >
-                <span className="font-bold text-[#1a1a2e] text-[15px] group-hover:text-[#4f46e5] transition-colors">{faq.question}</span>
+                <span className={`font-bold text-[15px] transition-colors ${activeFaq === faq.id ? 'text-[#4f46e5]' : 'text-[#1a1a2e] group-hover:text-[#4f46e5]'}`}>{faq.question}</span>
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${activeFaq === faq.id ? 'bg-[#4f46e5] text-white' : 'bg-gray-50 text-gray-400 group-hover:bg-[#f0f5ff] group-hover:text-[#4f46e5]'}`}>
                   <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${activeFaq === faq.id ? 'rotate-180' : ''}`} />
                 </div>
               </button>
-              {activeFaq === faq.id && (
-                <div className="px-6 pb-6 pt-0 bg-transparent">
-                  <p className="text-gray-600 text-[15px] leading-relaxed font-medium border-t border-gray-50 pt-4 mt-1">
-                    {faq.answer}
-                  </p>
+              <div 
+                className={`grid transition-all duration-300 ease-in-out ${
+                  activeFaq === faq.id ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                }`}
+              >
+                <div className="overflow-hidden">
+                  <div className="px-6 pb-6 pt-0 bg-transparent">
+                    <p className="text-gray-600 text-[15px] leading-relaxed font-medium border-t border-gray-50 pt-4 mt-1">
+                      {faq.answer}
+                    </p>
+                  </div>
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </div>

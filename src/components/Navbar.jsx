@@ -15,7 +15,6 @@ export default function Navbar({ currentPage, setCurrentPage, onGetStarted }) {
 
   const handleNavClick = (value) => {
     setCurrentPage(value);
-    window.location.hash = `/${value}`;
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setIsOpen(false);
   };

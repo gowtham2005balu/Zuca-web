@@ -2,7 +2,8 @@ import React, { useState, useRef } from 'react';
 import {
   ArrowRight, ShieldCheck, CreditCard, Sparkles,
   Calendar, MapPin, Star, UserCheck, Smartphone,
-  Zap, User, Search, Smile, MessageSquare, Quote
+  Zap, User, Search, Smile, MessageSquare, Quote,
+  Megaphone, Heart
 } from 'lucide-react';
 import hero from '../assets/hero.png';
 import unionBg from '../assets/Union.png';
@@ -681,50 +682,52 @@ export default function Home({ onGetStarted }) {
       </section>
 
       {/* 5th SECTION: APP DOWNLOAD BANNER */}
-      <section className="bg-[#E0EBFC] py-14 mb-20 relative overflow-hidden">
-        {/* Large dashed background circles */}
-        <div className="absolute right-[35%] top-[-10%] w-[500px] h-[500px] border-[2px] border-dashed border-blue-300/40 rounded-full pointer-events-none -z-10" />
-        <div className="absolute right-[-10%] bottom-[-10%] w-[550px] h-[550px] border-[2px] border-dashed border-blue-300/40 rounded-full pointer-events-none -z-10" />
+      <section className="mb-20 max-w-[1350px] mx-auto px-4 sm:px-6 w-full">
+        <div className="bg-[#E0EBFC] pt-14 lg:pt-16 relative overflow-hidden rounded-[32px] px-6 sm:px-10 lg:px-16 min-h-[450px] flex flex-col lg:flex-row items-end justify-between gap-8 lg:gap-12">
+          {/* Large dashed background circles */}
+          <div className="absolute right-[35%] top-[-10%] w-[500px] h-[500px] border-[2px] border-dashed border-blue-300/40 rounded-full pointer-events-none z-0" />
+          <div className="absolute right-[-10%] bottom-[-10%] w-[550px] h-[550px] border-[2px] border-dashed border-blue-300/40 rounded-full pointer-events-none z-0" />
 
-        <div className="max-w-7xl mx-auto px-6 sm:px-8">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-12 relative">
+          {/* Left Content */}
+          <div className="text-left space-y-6 max-w-md z-10 pb-14 lg:pb-16 w-full relative">
+            <h2 className="text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] tracking-tight">
+              Your Beauty. <span className="text-brand-blue">Your Way.</span>
+            </h2>
+            <p className="text-gray-600 text-sm leading-relaxed max-w-sm font-medium">
+              Whether it's now or later, Zuca makes beauty booking simple and convenient.
+            </p>
+            {/* Launching Soon Box */}
+            <div className="mt-8 space-y-4">
+              <div className="bg-white/70 backdrop-blur-md border border-white p-5 rounded-2xl flex items-center gap-5 shadow-sm max-w-[420px]">
+                <div className="relative shrink-0">
+                  <div className="h-14 w-14 bg-[#E0EBFC] rounded-full flex items-center justify-center">
+                    <Megaphone className="h-7 w-7 text-brand-blue" />
+                  </div>
+                  <Sparkles className="absolute -top-1 -left-2 h-4 w-4 text-blue-300" />
+                  <Sparkles className="absolute bottom-1 -right-2 h-3 w-3 text-blue-300" />
+                </div>
+                <div>
+                  <h4 className="text-xl font-bold text-brand-blue mb-1">Launching Soon!</h4>
+                  <p className="text-sm text-gray-600 font-medium leading-relaxed">
+                    Our app is currently in development and will be available soon.
+                  </p>
+                </div>
+              </div>
 
-            {/* Left Content */}
-            <div className="text-left space-y-6 max-w-md z-10">
-              <h2 className="text-5xl lg:text-6xl font-extrabold text-gray-900 leading-[1.1] tracking-tight">
-                Your Beauty. <span className="text-brand-blue">Your Way.</span>
-              </h2>
-              <p className="text-gray-600 text-sm leading-relaxed max-w-sm font-medium">
-                Whether it's now or later, Zuca makes beauty booking simple and convenient.
-              </p>
-              {/* App badges */}
-              <div className="flex flex-wrap gap-4 pt-2">
-                <a href="#" onClick={(e) => e.preventDefault()} className="inline-block hover:scale-[1.02] transition-transform">
-                  <img
-                    src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                    className="h-11"
-                    alt="Download on App Store"
-                  />
-                </a>
-                <a href="#" onClick={(e) => e.preventDefault()} className="inline-block hover:scale-[1.02] transition-transform">
-                  <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-                    className="h-11"
-                    alt="Get it on Google Play"
-                  />
-                </a>
+              <div className="flex items-center gap-2 text-gray-600 pl-2 pt-2">
+                <Heart className="h-5 w-5 text-brand-blue" />
+                <span className="text-sm font-medium">Stay tuned for something beautiful.</span>
               </div>
             </div>
+          </div>
 
-            {/* Right Photo */}
-            <div className="lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 lg:w-[537.5px] lg:h-[382.5px] z-10 shrink-0 w-full max-w-[320px] lg:max-w-none flex justify-center lg:justify-end items-center mt-8 lg:mt-0">
-              <img
-                src={appDownloadBanner}
-                className="w-full h-full object-contain pointer-events-none select-none block"
-                alt="Smiling woman with serene face touching face"
-              />
-            </div>
-
+          {/* Right Photo */}
+          <div className="z-10 shrink-0 w-full lg:w-auto flex justify-center lg:justify-end items-end relative mt-6 lg:mt-0">
+            <img
+              src={appDownloadBanner}
+              className="w-auto h-[320px] lg:h-[420px] object-contain object-right-bottom pointer-events-none select-none block"
+              alt="Smiling woman with serene face touching face"
+            />
           </div>
         </div>
       </section>

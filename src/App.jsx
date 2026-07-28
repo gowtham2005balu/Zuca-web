@@ -30,6 +30,7 @@ function App() {
 
   const navigateTo = (page) => {
     window.location.hash = `#/${page}`;
+    setCurrentPage(page);
   };
 
   const [selectedJob, setSelectedJob] = useState(null);

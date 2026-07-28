@@ -94,33 +94,42 @@ export default function Careers({ onSelectJob }) {
   return (
     <div className="w-full">
       {/* 3rd HERO SECTION */}
-      <section className="relative overflow-hidden pt-28 pb-20 md:pt-36 md:pb-24 bg-white text-left">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <section className="relative overflow-hidden pt-28 pb-20 md:pt-36 md:pb-24 bg-white text-left font-sans z-0">
+        
+        {/* Top-Left Dotted Pattern */}
+        <img 
+          src="https://res.cloudinary.com/dqsyzpxkg/image/upload/v1785219105/3dd9e4f4-7bba-427d-aaf7-5117cf99a7f9.png" 
+          alt="Background Pattern" 
+          className="absolute top-0 left-0 w-[250px] md:w-[300px] lg:w-[350px] h-auto object-contain pointer-events-none opacity-50 -z-10 -translate-x-1/4 -translate-y-1/4"
+        />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center">
             
             {/* Left Column Content */}
-            <div className="lg:col-span-6 space-y-6">
-              <span className="text-xs font-bold text-[#7c3aed] uppercase tracking-widest block">
+            <div className="lg:col-span-1 space-y-6">
+              <div className="text-[#4f46e5] text-[11px] font-bold tracking-widest uppercase">
                 CAREERS
-              </span>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 tracking-tight leading-tight">
-                Build the future of <br />
-                <span className="text-[#7c3aed] italic font-black">beauty</span> with us
+              </div>
+              
+              <h1 className="text-5xl sm:text-6xl lg:text-[64px] font-extrabold leading-[1.1] tracking-tight text-[#1a1a2e]">
+                Build the future of <br className="hidden lg:block"/>
+                <span className="text-[#4f46e5]">beauty</span> with us
               </h1>
-              <p className="text-gray-400 text-sm leading-relaxed max-w-lg font-semibold">
-                At Zuca, we're more than a company. We're a passionate team reimagining how people experience beauty.
+              
+              <p className="text-gray-500 text-[15px] sm:text-[17px] leading-relaxed max-w-[28rem] font-medium pt-2">
+                At Zuca, we're more than an app. We're a passionate team reimagining how people experience beauty.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <a 
                   href="#open-roles"
-                  className="bg-[#7c3aed] hover:bg-[#6d28d9] text-white px-7 py-3 rounded-xl font-bold text-xs transition-colors text-center cursor-pointer shadow-md shadow-purple-600/10"
+                  className="bg-[#4f46e5] hover:bg-[#4338ca] text-white px-8 py-3.5 rounded-xl font-bold text-[14px] transition-colors text-center flex items-center justify-center gap-2 shadow-md shadow-[#4f46e5]/20"
                 >
-                  View Open Roles
+                  View Open Roles &rarr;
                 </a>
                 <button 
-                  onClick={() => alert("Life at Zuca: We value remote collaboration, transparent communication, and periodic team retreats!")}
-                  className="border border-gray-250 text-gray-700 px-7 py-3 rounded-xl font-bold text-xs transition-colors cursor-pointer bg-white"
+                  className="border border-gray-200 text-[#1a1a2e] px-8 py-3.5 rounded-xl font-bold text-[14px] transition-colors bg-white hover:bg-gray-50 flex items-center justify-center"
                 >
                   Life at Zuca
                 </button>
@@ -128,13 +137,51 @@ export default function Careers({ onSelectJob }) {
             </div>
 
             {/* Right Side Collage */}
-            <div className="lg:col-span-6 flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-[480px] flex justify-center lg:justify-end">
+            <div className="lg:col-span-1 relative flex justify-center lg:justify-end items-center mt-10 lg:mt-0">
+              <div className="relative w-full max-w-[540px] h-[480px] lg:h-[550px] flex gap-4 lg:gap-5 z-10">
+                
+                {/* Dotted Patterns */}
                 <img 
-                  src="/carrers.png" 
-                  className="w-full max-w-[450px] md:max-w-[480px] h-auto object-contain z-10 relative"
-                  alt="Zuca careers beauty collage"
+                  src="https://res.cloudinary.com/dqsyzpxkg/image/upload/v1785219105/3dd9e4f4-7bba-427d-aaf7-5117cf99a7f9.png" 
+                  alt="Pattern" 
+                  className="absolute -top-12 -left-12 w-48 h-auto -z-10 object-contain pointer-events-none opacity-70"
                 />
+                <img 
+                  src="https://res.cloudinary.com/dqsyzpxkg/image/upload/v1785219105/3dd9e4f4-7bba-427d-aaf7-5117cf99a7f9.png" 
+                  alt="Pattern" 
+                  className="absolute bottom-8 -right-16 w-56 h-auto -z-10 object-contain pointer-events-none opacity-70"
+                />
+
+                {/* Left Large Image (Mask) */}
+                <div className="flex-1 h-full relative">
+                  <img 
+                    src="https://res.cloudinary.com/dqsyzpxkg/image/upload/v1785218975/71c3854b-7bab-48d6-a388-50ad372cd8c9.png" 
+                    alt="Beauty mask" 
+                    className="w-full h-full object-cover rounded-[24px] lg:rounded-[32px]"
+                  />
+                  {/* Floating Card - Centered horizontally */}
+                  <div className="absolute -bottom-5 lg:-bottom-6 left-1/2 -translate-x-1/2 bg-[#f0f5ff] border-[2px] border-white p-2 lg:p-3 pr-4 lg:pr-6 rounded-2xl flex items-center gap-3 lg:gap-4 shadow-xl z-20 w-max">
+                    <div className="bg-[#e0ebfc] p-2 lg:p-2.5 rounded-xl flex items-center justify-center">
+                      <Heart className="w-4 h-4 lg:w-5 lg:h-5 text-red-500 fill-red-500" />
+                    </div>
+                    <span className="text-[#4f46e5] text-xs lg:text-sm font-bold whitespace-nowrap">We are a team that cares</span>
+                  </div>
+                </div>
+
+                {/* Right Stacked Images */}
+                <div className="flex flex-col gap-4 lg:gap-5 w-[42%] h-full">
+                  <img 
+                    src="https://res.cloudinary.com/dqsyzpxkg/image/upload/v1785219001/be304453-da92-44e7-b91a-9d229fd255c5.png" 
+                    alt="Nail polish" 
+                    className="w-full h-[calc(50%-0.5rem)] lg:h-[calc(50%-0.625rem)] object-cover rounded-[24px] lg:rounded-[32px]"
+                  />
+                  <img 
+                    src="https://res.cloudinary.com/dqsyzpxkg/image/upload/v1785218983/1953cf5b-231c-439a-8275-2c849ef3f291.png" 
+                    alt="Serum drops" 
+                    className="w-full h-[calc(50%-0.5rem)] lg:h-[calc(50%-0.625rem)] object-cover rounded-[24px] lg:rounded-[32px]"
+                  />
+                </div>
+
               </div>
             </div>
 
