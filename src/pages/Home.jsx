@@ -214,11 +214,45 @@ export default function Home({ onGetStarted }) {
                 className="pointer-events-none absolute -z-10 w-[360px] h-auto opacity-100 top-[10%] left-[8%]"
               />
 
+              {/* Note: Ensure you are using /hero_woman.png for the clean image without the baked-in tags */}
               <img
-                src={hero}
+                src="/hero_woman.png"
                 alt="Woman booking a beauty appointment on her phone"
-                className="w-[560px] h-[640px] object-contain z-10 relative"
+                className="w-full max-w-[560px] h-auto lg:h-[640px] object-contain z-10 relative"
               />
+
+              {/* Floating Tag: Instant Booking */}
+              <div className="absolute top-[22%] left-[2%] lg:left-[-6%] bg-white rounded-2xl p-3 shadow-xl border border-gray-100/50 flex items-center gap-3 z-20 scale-90 sm:scale-100 transform-gpu min-w-[190px]">
+                <div className="bg-blue-50 p-2.5 rounded-xl text-brand-blue shadow-sm">
+                  <Zap className="h-5 w-5" />
+                </div>
+                <div className="text-left">
+                  <p className="text-sm font-extrabold text-gray-900 leading-tight">Instant Booking</p>
+                  <p className="text-xs text-gray-400 font-semibold mt-0.5">Available now</p>
+                </div>
+              </div>
+
+              {/* Floating Tag: Visit a Provider */}
+              <div className="absolute top-[12%] right-[4%] lg:right-[-4%] bg-white rounded-2xl p-3 shadow-xl border border-gray-100/50 flex items-center gap-3 z-20 scale-90 sm:scale-100 transform-gpu min-w-[190px]">
+                <div className="bg-blue-50 p-2.5 rounded-xl text-brand-blue shadow-sm">
+                  <MapPin className="h-5 w-5" />
+                </div>
+                <div className="text-left">
+                  <p className="text-sm font-extrabold text-gray-900 leading-tight">Visit a Provider</p>
+                  <p className="text-xs text-gray-400 font-semibold mt-0.5">Near you</p>
+                </div>
+              </div>
+
+              {/* Floating Tag: Schedule Ahead */}
+              <div className="absolute bottom-[19%] left-[4%] lg:left-[-2%] bg-white rounded-2xl p-3 shadow-xl border border-gray-100/50 flex items-center gap-3 z-20 scale-90 sm:scale-100 transform-gpu min-w-[210px]">
+                <div className="bg-blue-50 p-2.5 rounded-xl text-brand-blue shadow-sm">
+                  <Calendar className="h-5 w-5" />
+                </div>
+                <div className="text-left">
+                  <p className="text-sm font-extrabold text-gray-900 leading-tight">Schedule Ahead</p>
+                  <p className="text-xs text-gray-400 font-semibold mt-0.5">Pick a time that suits you</p>
+                </div>
+              </div>
             </div>
 
           </div>

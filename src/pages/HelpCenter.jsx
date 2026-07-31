@@ -101,9 +101,9 @@ export default function HelpCenter({ onGetStarted }) {
           {topics.map((topic, index) => (
             <div 
               key={index} 
-              className="flex flex-col items-center justify-start p-7 border border-gray-100 rounded-3xl hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:border-[#4f46e5]/10 hover:-translate-y-1 transition-all duration-300 cursor-pointer group bg-white"
+              className="flex flex-col items-center justify-start p-7 border border-gray-100 rounded-3xl cursor-pointer bg-white"
             >
-              <div className="w-14 h-14 rounded-2xl bg-[#f0f5ff] text-[#4f46e5] flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-[#4f46e5] group-hover:text-white transition-all duration-300 shadow-sm">
+              <div className="w-14 h-14 rounded-2xl bg-[#f0f5ff] text-[#4f46e5] flex items-center justify-center mb-5 shadow-sm">
                 {topic.icon}
               </div>
               <h4 className="font-bold text-[#1a1a2e] text-[15px] mb-2.5">{topic.title}</h4>

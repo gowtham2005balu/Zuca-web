@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { 
-  Users, TrendingUp, Sparkles, Heart, Gift, 
-  Smile, Briefcase, MapPin, Clock, Search, ChevronRight 
+import {
+  Users, TrendingUp, Sparkles, Heart, Gift,
+  Smile, Briefcase, MapPin, Clock, Search, ChevronRight
 } from 'lucide-react';
 
 export default function Careers({ onSelectJob }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedDept, setSelectedDept] = useState('All');
-  
+
   // Newsletter Interest State
   const [interestEmail, setInterestEmail] = useState('');
   const [interestSubmitted, setInterestSubmitted] = useState(false);
@@ -95,40 +95,40 @@ export default function Careers({ onSelectJob }) {
     <div className="w-full">
       {/* 3rd HERO SECTION */}
       <section className="relative overflow-hidden pt-28 pb-20 md:pt-36 md:pb-24 bg-white text-left font-sans z-0">
-        
+
         {/* Top-Left Dotted Pattern */}
-        <img 
-          src="https://res.cloudinary.com/dqsyzpxkg/image/upload/v1785219105/3dd9e4f4-7bba-427d-aaf7-5117cf99a7f9.png" 
-          alt="Background Pattern" 
+        <img
+          src="https://res.cloudinary.com/dqsyzpxkg/image/upload/v1785219105/3dd9e4f4-7bba-427d-aaf7-5117cf99a7f9.png"
+          alt="Background Pattern"
           className="absolute top-0 left-0 w-[250px] md:w-[300px] lg:w-[350px] h-auto object-contain pointer-events-none opacity-50 -z-10 -translate-x-1/4 -translate-y-1/4"
         />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center">
-            
+
             {/* Left Column Content */}
             <div className="lg:col-span-1 space-y-6">
               <div className="text-[#4f46e5] text-[11px] font-bold tracking-widest uppercase">
                 CAREERS
               </div>
-              
+
               <h1 className="text-5xl sm:text-6xl lg:text-[64px] font-extrabold leading-[1.1] tracking-tight text-[#1a1a2e]">
-                Build the future of <br className="hidden lg:block"/>
+                Build the future of <br className="hidden lg:block" />
                 <span className="text-[#4f46e5]">beauty</span> with us
               </h1>
-              
+
               <p className="text-gray-500 text-[15px] sm:text-[17px] leading-relaxed max-w-[28rem] font-medium pt-2">
                 At Zuca, we're more than an app. We're a passionate team reimagining how people experience beauty.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <a 
+                <a
                   href="#open-roles"
                   className="bg-[#4f46e5] hover:bg-[#4338ca] text-white px-8 py-3.5 rounded-xl font-bold text-[14px] transition-colors text-center flex items-center justify-center gap-2 shadow-md shadow-[#4f46e5]/20"
                 >
                   View Open Roles &rarr;
                 </a>
-                <button 
+                <button
                   className="border border-gray-200 text-[#1a1a2e] px-8 py-3.5 rounded-xl font-bold text-[14px] transition-colors bg-white hover:bg-gray-50 flex items-center justify-center"
                 >
                   Life at Zuca
@@ -139,24 +139,24 @@ export default function Careers({ onSelectJob }) {
             {/* Right Side Collage */}
             <div className="lg:col-span-1 relative flex justify-center lg:justify-end items-center mt-10 lg:mt-0">
               <div className="relative w-full max-w-[540px] h-[480px] lg:h-[550px] flex gap-4 lg:gap-5 z-10">
-                
+
                 {/* Dotted Patterns */}
-                <img 
-                  src="https://res.cloudinary.com/dqsyzpxkg/image/upload/v1785219105/3dd9e4f4-7bba-427d-aaf7-5117cf99a7f9.png" 
-                  alt="Pattern" 
+                <img
+                  src="https://res.cloudinary.com/dqsyzpxkg/image/upload/v1785219105/3dd9e4f4-7bba-427d-aaf7-5117cf99a7f9.png"
+                  alt="Pattern"
                   className="absolute -top-12 -left-12 w-48 h-auto -z-10 object-contain pointer-events-none opacity-70"
                 />
-                <img 
-                  src="https://res.cloudinary.com/dqsyzpxkg/image/upload/v1785219105/3dd9e4f4-7bba-427d-aaf7-5117cf99a7f9.png" 
-                  alt="Pattern" 
+                <img
+                  src="https://res.cloudinary.com/dqsyzpxkg/image/upload/v1785219105/3dd9e4f4-7bba-427d-aaf7-5117cf99a7f9.png"
+                  alt="Pattern"
                   className="absolute bottom-8 -right-16 w-56 h-auto -z-10 object-contain pointer-events-none opacity-70"
                 />
 
                 {/* Left Large Image (Mask) */}
                 <div className="flex-1 h-full relative">
-                  <img 
-                    src="https://res.cloudinary.com/dqsyzpxkg/image/upload/v1785218975/71c3854b-7bab-48d6-a388-50ad372cd8c9.png" 
-                    alt="Beauty mask" 
+                  <img
+                    src="https://res.cloudinary.com/dqsyzpxkg/image/upload/v1785218975/71c3854b-7bab-48d6-a388-50ad372cd8c9.png"
+                    alt="Beauty mask"
                     className="w-full h-full object-cover rounded-[24px] lg:rounded-[32px]"
                   />
                   {/* Floating Card - Centered horizontally */}
@@ -170,14 +170,14 @@ export default function Careers({ onSelectJob }) {
 
                 {/* Right Stacked Images */}
                 <div className="flex flex-col gap-4 lg:gap-5 w-[42%] h-full">
-                  <img 
-                    src="https://res.cloudinary.com/dqsyzpxkg/image/upload/v1785219001/be304453-da92-44e7-b91a-9d229fd255c5.png" 
-                    alt="Nail polish" 
+                  <img
+                    src="https://res.cloudinary.com/dqsyzpxkg/image/upload/v1785219001/be304453-da92-44e7-b91a-9d229fd255c5.png"
+                    alt="Nail polish"
                     className="w-full h-[calc(50%-0.5rem)] lg:h-[calc(50%-0.625rem)] object-cover rounded-[24px] lg:rounded-[32px]"
                   />
-                  <img 
-                    src="https://res.cloudinary.com/dqsyzpxkg/image/upload/v1785218983/1953cf5b-231c-439a-8275-2c849ef3f291.png" 
-                    alt="Serum drops" 
+                  <img
+                    src="https://res.cloudinary.com/dqsyzpxkg/image/upload/v1785218983/1953cf5b-231c-439a-8275-2c849ef3f291.png"
+                    alt="Serum drops"
                     className="w-full h-[calc(50%-0.5rem)] lg:h-[calc(50%-0.625rem)] object-cover rounded-[24px] lg:rounded-[32px]"
                   />
                 </div>
@@ -202,8 +202,8 @@ export default function Careers({ onSelectJob }) {
             {perks.map((perk, idx) => {
               const IconComponent = perk.icon;
               return (
-                <div 
-                  key={idx} 
+                <div
+                  key={idx}
                   className="bg-white rounded-3xl p-8 border border-gray-100/70 shadow-sm text-left hover:border-purple-100 hover:shadow-md transition-all duration-300 space-y-4"
                 >
                   <div className="bg-purple-50 text-[#7c3aed] h-11 w-11 rounded-2xl flex items-center justify-center">
@@ -255,11 +255,10 @@ export default function Careers({ onSelectJob }) {
                 <button
                   key={dept}
                   onClick={() => setSelectedDept(dept)}
-                  className={`px-4 py-2 rounded-full text-xs font-semibold transition-all cursor-pointer ${
-                    selectedDept === dept
+                  className={`px-4 py-2 rounded-full text-xs font-semibold transition-all cursor-pointer ${selectedDept === dept
                       ? 'bg-[#7c3aed] text-white shadow-md shadow-purple-600/10'
                       : 'bg-gray-50 text-gray-500 border border-gray-150/70 hover:bg-gray-100'
-                  }`}
+                    }`}
                 >
                   {dept}
                 </button>
@@ -305,8 +304,8 @@ export default function Careers({ onSelectJob }) {
                 }
 
                 return (
-                  <div 
-                    key={job.id} 
+                  <div
+                    key={job.id}
                     className="bg-white rounded-2xl p-5 border border-gray-100/70 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 hover:border-purple-100 hover:shadow-sm transition-all text-left animate-in fade-in duration-200"
                   >
                     <div className="flex items-center gap-4">
@@ -325,7 +324,7 @@ export default function Careers({ onSelectJob }) {
                       </div>
                     </div>
 
-                    <button 
+                    <button
                       onClick={() => onSelectJob(job)}
                       className="text-[#7c3aed] hover:text-[#6d28d9] font-bold text-xs transition-colors flex items-center gap-1 cursor-pointer self-end sm:self-center bg-transparent border-0 py-1"
                     >
@@ -342,10 +341,10 @@ export default function Careers({ onSelectJob }) {
               </div>
             )}
           </div>
-          
+
           {/* View All Open Roles Button */}
           <div className="text-center mt-10">
-            <button 
+            <button
               onClick={() => {
                 setSearchTerm('');
                 setSelectedDept('All');
@@ -375,7 +374,7 @@ export default function Careers({ onSelectJob }) {
             </div>
 
             <div className="w-full lg:max-w-xs shrink-0 flex justify-start lg:justify-end">
-              <button 
+              <button
                 onClick={() => {
                   const email = prompt("Enter your email address to submit your interest:");
                   if (email) {

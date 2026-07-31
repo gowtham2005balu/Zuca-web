@@ -4,65 +4,81 @@ import { Zap } from "lucide-react";
 const W = "#ffffff";
 const P2 = "#a78bfa";
 
-const TOPIC_TAGS = ["AI", "Freelancing", "Remote Work", "Startups", "Hiring", "Productivity", "Design", "Development"];
+const TOPIC_TAGS = ["Makeup", "Skincare", "Hair Care", "Salon", "Nail Care", "Bridal Beauty", "Beauty Treatments", "Wellness"];
 
 const TRENDING = [
-  { id: 1, tag: "AI", color: "#2d5a1b", title: "AI Hiring Trends 2026", meta: "6 min · 18.2K views" },
-  { id: 2, tag: "Productivity", color: "#1a3a5c", title: "10 Productivity Hacks for Freelancers", meta: "4 min · 14K views" },
-  { id: 3, tag: "Remote Work", color: "#1a4a3a", title: "Building a Remote Team That Scales", meta: "7 min · 9.8K views" },
-  { id: 4, tag: "Hiring", color: "#3a1a5c", title: "Why Businesses Prefer Freelancers", meta: "5 min · 5.6K views" },
-  { id: 5, tag: "Design", color: "#3a3a1a", title: "Future of Design Careers", meta: "6 min · 4.7K views" },
+  { id: 1, tag: "Makeup", color: "#2d5a1b", title: "10 Makeup Trends You'll See Everywhere", meta: "8 min · 12.6K views" },
+  { id: 2, tag: "Skincare", color: "#1a3a5c", title: "The Complete Morning & Night Routine", meta: "7 min · 10.9K views" },
+  { id: 3, tag: "Hair Care", color: "#1a4a3a", title: "Professional Hair Care Secrets", meta: "6 min · 9.8K views" },
+  { id: 4, tag: "Salon", color: "#3a1a5c", title: "How to Choose the Perfect Salon", meta: "5 min · 8.4K views" },
+  { id: 5, tag: "Nail Care", color: "#3a3a1a", title: "Nail Art Trends Taking Over in 2026", meta: "6 min · 9.1K views" },
 ];
 
 const ARTICLES = [
   {
     bg: "linear-gradient(135deg, #4a1a8a 0%, #6a3aaa 100%)",
-    label: "The AI Tools Every Freelancer Needs in 2026",
-    tag: "AI", tagColor: "#4a90d9",
-    title: "10 AI Tools That Will Supercharge Your Freelance Career",
-    desc: "From automated proposal writing to AI-powered client matching, these tools are reshaping how freelancers work.",
-    author: "Mike Kim", date: "Jun 1 · 8 min", saves: "4.2K",
+    label: "Makeup Trends",
+    tag: "Makeup", tagColor: "#4a90d9",
+    title: "10 Makeup Trends You'll See Everywhere This Year",
+    desc: "From natural glowing skin to bold eye looks, explore the makeup styles defining this year's beauty scene.",
+    author: "Emily Carter", date: "June 12 · 8 min", saves: "12.6K",
   },
   {
     bg: "linear-gradient(135deg, #1a7a5a 0%, #2aaa7a 100%)",
-    label: "Remote Work Culture Blueprint",
-    tag: "Remote Work", tagColor: "#2aaa7a",
-    title: "How to Build an Async-First Remote Culture That Actually Works",
-    desc: "The companies thriving in remote work aren't doing it by accident. Here's their playbook.",
-    author: "Amy Lee", date: "May 28 · 6 min", saves: "5.0K",
+    label: "Skincare Essentials",
+    tag: "Skincare", tagColor: "#2aaa7a",
+    title: "The Complete Morning & Night Skincare Routine",
+    desc: "Learn the essential steps for healthy, radiant skin using dermatologist-recommended practices.",
+    author: "Olivia Brown", date: "June 10 · 7 min", saves: "10.9K",
   },
   {
     bg: "linear-gradient(135deg, #c04a10 0%, #e06a20 100%)",
-    label: "From Freelancer to Founder",
-    tag: "Startups", tagColor: "#e06a20",
-    title: "How 3 Freelancers Built 7-Figure Agencies in 18 Months",
-    desc: "Success stories from the Huzzler community — and the exact strategies they used to scale.",
-    author: "Ryan Park", date: "May 28 · 8 min", saves: "5.6K",
+    label: "Healthy Hair",
+    tag: "Hair Care", tagColor: "#e06a20",
+    title: "Professional Hair Care Secrets for Healthy Hair",
+    desc: "Expert tips to reduce damage, improve shine, and maintain strong, beautiful hair.",
+    author: "Jessica Miller", date: "June 8 · 6 min", saves: "9.8K",
   },
   {
     bg: "linear-gradient(135deg, #1a3a5c 0%, #2a5a8c 100%)",
-    label: "Client Communication Mastery",
-    tag: "Hiring", tagColor: "#e06a20",
-    title: "The Freelancer's Guide to Landing Premium Clients Consistently",
-    desc: "Stop chasing low-paying gigs. Here's how top earners position themselves to attract high-value clients.",
-    author: "Julia Torres", date: "May 28 · 7 min", saves: "4.6K",
+    label: "Salon Guide",
+    tag: "Salon", tagColor: "#e06a20",
+    title: "How to Choose the Perfect Salon for Every Beauty Service",
+    desc: "Know what to look for before booking your next haircut, facial, manicure, or spa treatment.",
+    author: "Rachel Green", date: "June 5 · 5 min", saves: "8.4K",
   },
   {
     bg: "linear-gradient(135deg, #8a7a10 0%, #c0aa20 100%)",
-    label: "Design Systems for Freelancers",
-    tag: "Design", tagColor: "#c0aa20",
-    title: "Why Freelance Designers Are Charging 3x More With Design Systems",
-    desc: "Design systems aren't just for big teams. Freelancers using them are commanding premium rates.",
-    author: "Dana North", date: "May 28 · 5 min", saves: "5.0K",
+    label: "Nail Art",
+    tag: "Nail Care", tagColor: "#c0aa20",
+    title: "Nail Art Trends That Are Taking Over in 2026",
+    desc: "Discover elegant, minimalist, and luxury nail designs loved by beauty professionals.",
+    author: "Mia Johnson", date: "June 3 · 6 min", saves: "9.1K",
   },
   {
     bg: "linear-gradient(135deg, #6a1a8a 0%, #c040c0 100%)",
-    label: "Full-Stack Dev Market 2026",
-    tag: "Development", tagColor: "#a040d0",
-    title: "The Most In-Demand Dev Skills for Freelancers This Year",
-    desc: "TypeScript, AI APIs, and serverless architectures are reshaping what clients will pay top dollar for.",
-    author: "Chris Moore", date: "May 22 · 7 min", saves: "7.6K",
+    label: "Bridal Looks",
+    tag: "Bridal Beauty", tagColor: "#a040d0",
+    title: "Bridal Makeup Tips for a Long-Lasting Glow",
+    desc: "Professional makeup artists share techniques for achieving flawless bridal looks that last all day.",
+    author: "Emma Wilson", date: "June 1 · 8 min", saves: "11.3K",
   },
+  {
+    bg: "linear-gradient(135deg, #4a1a8a 0%, #e06a20 100%)",
+    label: "Salon Treatments",
+    tag: "Beauty Treatments", tagColor: "#e06a20",
+    title: "Popular Salon Treatments Worth Trying",
+    desc: "Explore hydrafacials, keratin treatments, hair spas, lash lifts, and other beauty services growing in popularity.",
+    author: "Sophia Adams", date: "May 29 · 7 min", saves: "8.7K",
+  },
+  {
+    bg: "linear-gradient(135deg, #1a7a5a 0%, #4a90d9 100%)",
+    label: "Self-Care",
+    tag: "Wellness", tagColor: "#4a90d9",
+    title: "Self-Care Rituals That Support Healthy Skin & Hair",
+    desc: "Simple daily habits that improve your overall beauty and wellness naturally.",
+    author: "Natalie Brooks", date: "May 27 · 5 min", saves: "7.9K",
+  }
 ];
 
 const TagBadge = ({ text, color }) => (
@@ -101,10 +117,10 @@ export default function Blog({ setCurrentPage }) {
             ✦ Zuca Insights
           </div>
           <h1 style={{ color: "#fff", fontSize: 38, fontWeight: 800, lineHeight: 1.15, margin: "0 0 14px", letterSpacing: -0.5 }}>
-            The Future of<br />Freelancing, AI &<br />Remote Work
+            Discover Beauty,<br />Makeup & Salon<br />Trends
           </h1>
           <p style={{ color: "#b0aacc", fontSize: 14, lineHeight: 1.6, margin: "0 0 24px" }}>
-            Actionable insights, hiring trends, productivity guides, freelance success stories, AI workflows, and expert advice.
+            Expert beauty tips, skincare routines, makeup tutorials, salon guides, haircare advice, and the latest beauty trends.
           </p>
           <div style={{ display: "flex", gap: 8, marginBottom: 20 }}>
             <input placeholder="Search articles, guides, more..." style={{
@@ -119,22 +135,22 @@ export default function Blog({ setCurrentPage }) {
         {/* Featured card */}
         <div style={{ width: 260, zIndex: 1, marginTop: "32px" }} className="md:mt-0">
           <div style={{ background: "#c8b8ff", borderRadius: 12, padding: "14px 16px", marginBottom: 12 }}>
-            <div style={{ fontWeight: 700, fontSize: 15, color: "#1a1060", marginBottom: 4 }}>AI Hiring 2026</div>
+            <div style={{ fontWeight: 700, fontSize: 15, color: "#1a1060", marginBottom: 4 }}>Beauty Trends 2026</div>
             <div style={{ fontSize: 11, color: "#5a4a99" }}>The definitive guide</div>
           </div>
           <div style={{ background: "#ffffff12", border: "1px solid #ffffff20", borderRadius: 12, padding: "14px 16px" }}>
-            <span style={{ background: "#2aaa7a22", color: "#2aaa7a", border: "1px solid #2aaa7a44", borderRadius: 4, padding: "2px 8px", fontSize: 11, fontWeight: 600 }}>AI & Freelancing</span>
+            <span style={{ background: "#2aaa7a22", color: "#2aaa7a", border: "1px solid #2aaa7a44", borderRadius: 4, padding: "2px 8px", fontSize: 11, fontWeight: 600 }}>Featured Article</span>
             <div style={{ fontWeight: 700, fontSize: 14, color: "#fff", margin: "10px 0 8px", lineHeight: 1.4 }}>
-              How AI Is Transforming Freelance Hiring in 2026
+              The Beauty Trends Everyone Will Be Following in 2026
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-              <div style={{ width: 26, height: 26, borderRadius: "50%", background: "#5b4fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, color: "#fff", fontWeight: 700 }}>SJ</div>
+              <div style={{ width: 26, height: 26, borderRadius: "50%", background: "#5b4fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, color: "#fff", fontWeight: 700 }}>SB</div>
               <div>
-                <div style={{ fontSize: 11, color: "#c0b8ff", fontWeight: 600 }}>Sarah Johnson</div>
-                <div style={{ fontSize: 10, color: "#8880aa" }}>Senior Editor · Zuca</div>
+                <div style={{ fontSize: 11, color: "#c0b8ff", fontWeight: 600 }}>Sophia Bennett</div>
+                <div style={{ fontSize: 10, color: "#8880aa" }}>Beauty Editor · Zuca</div>
               </div>
             </div>
-            <div style={{ fontSize: 11, color: "#8880aa", marginTop: 8 }}>✦ 8 min read · ⊙ 10.5K views</div>
+            <div style={{ fontSize: 11, color: "#8880aa", marginTop: 8 }}>✦ 9 min read · ⊙ 21.8K views</div>
           </div>
         </div>
       </div>
@@ -165,7 +181,7 @@ export default function Blog({ setCurrentPage }) {
       </div>
 
       {/* LATEST ARTICLES */}
-      <div style={{ padding: "32px 100px" }} className="px-4 md:px-12 lg:px-[100px]">
+      <div style={{ padding: "32px 100px 100px" }} className="px-4 md:px-12 lg:px-[100px] pb-24">
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 20 }}>
           <div>
             <span style={{ fontSize: 20, fontWeight: 800, color: "#1a1a2e" }}>Latest Articles</span>

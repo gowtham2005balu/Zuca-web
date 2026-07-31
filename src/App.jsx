@@ -45,7 +45,7 @@ function App() {
       case 'careers':
         return <Careers onSelectJob={(job) => setSelectedJob(job)} />;
       case 'providers':
-        return <Providers />;
+        return <Providers onSelectJob={(job) => setSelectedJob({ ...job, hideApply: true })} />;
       case 'blog':
         return <Blog />;
       case 'helpcenter':

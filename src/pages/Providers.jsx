@@ -1,7 +1,7 @@
 import React from 'react';
 import { Briefcase, ArrowRight, PlayCircle, Users, Zap, Sprout, Heart, Gift, PenTool, Code2, Headphones, Megaphone, BarChart2, MapPin } from 'lucide-react';
 
-export default function Providers() {
+export default function Providers({ onSelectJob }) {
   const providerPerks = [
     {
       icon: Users,
@@ -232,14 +232,11 @@ export default function Providers() {
                     </div>
                   </div>
 
-                  {/* Right Side Buttons */}
+                  {/* Right Side */}
                   <div className="flex items-center justify-between md:justify-end gap-6 w-full md:w-auto mt-2 md:mt-0 pt-4 md:pt-0 border-t border-gray-50 md:border-t-0 shrink-0">
                     <span className="bg-[#f0f5ff] text-[#4f46e5] px-4 py-1.5 rounded-full text-[12px] font-bold hidden sm:block border border-[#e0e7ff]">
                       {job.type}
                     </span>
-                    <button className="bg-[#4f46e5] hover:bg-[#4338ca] text-white px-7 py-3 rounded-xl font-bold text-[14px] flex items-center justify-center gap-2 transition-all shadow-md shadow-indigo-500/20 group-hover:shadow-lg group-hover:shadow-indigo-500/30 w-full md:w-auto">
-                      Apply Now <ArrowRight size={16} />
-                    </button>
                   </div>
                 </div>
               );
