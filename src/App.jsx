@@ -11,25 +11,43 @@ import JobModal from './components/JobModal';
 import BookingModal from './components/BookingModal';
 
 
+const VALID_PAGES = ['home', 'about', 'careers', 'blog', 'helpcenter', 'providers'];
+
+const getPageFromPath = () => {
+  if (window.location.hash.startsWith('#/')) {
+    const hashPage = window.location.hash.slice(2).toLowerCase();
+    if (VALID_PAGES.includes(hashPage)) {
+      return hashPage;
+    }
+  }
+
+  const path = window.location.pathname.replace(/^\/+|\/+$/g, '').toLowerCase();
+  return VALID_PAGES.includes(path) ? path : 'home';
+};
+
 function App() {
-  const [currentPage, setCurrentPage] = useState(() => {
-    const hash = window.location.hash.slice(2);
-    return ['home', 'about', 'careers', 'blog', 'helpcenter', 'providers'].includes(hash) ? hash : 'home';
-  });
+  const [currentPage, setCurrentPage] = useState(getPageFromPath);
 
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.slice(2);
-      const targetPage = ['home', 'about', 'careers', 'blog', 'helpcenter', 'providers'].includes(hash) ? hash : 'home';
-      setCurrentPage(targetPage);
+    if (window.location.hash.startsWith('#/')) {
+      const hashPage = window.location.hash.slice(2).toLowerCase();
+      const cleanPath = VALID_PAGES.includes(hashPage) && hashPage !== 'home' ? `/${hashPage}` : '/';
+      window.history.replaceState({}, '', cleanPath);
+    }
+
+    const handlePopState = () => {
+      setCurrentPage(getPageFromPath());
     };
 
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
   const navigateTo = (page) => {
-    window.location.hash = `#/${page}`;
+    const targetPath = page === 'home' ? '/' : `/${page}`;
+    if (window.location.pathname !== targetPath) {
+      window.history.pushState({}, '', targetPath);
+    }
     setCurrentPage(page);
   };
 
